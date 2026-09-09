@@ -1,15 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Spot } from "./spot.entity";
+import { Spot } from "./guest-check.entity";
 import { SpotController } from "./spot.controller";
-import { SpotService } from "./spot.service";
+import { SpotService } from "./guest-check.service";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Spot])],
   controllers: [SpotController],
   providers: [SpotService],
-  exports: [SpotService]
 })
 export class SpotModule {
 
