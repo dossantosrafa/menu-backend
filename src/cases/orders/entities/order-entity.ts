@@ -1,6 +1,6 @@
 import { GuestCheck } from "src/cases/guest-checks/guest-check.entity";
 import { OrderItem } from "./order-item.entity";
-import { Column, CreateDateColumn, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export enum OrderStatus {
   NEW = 'NEW',
@@ -9,6 +9,7 @@ export enum OrderStatus {
   DELIVERY = 'DELIVERY'
 }
 
+@Entity()
 export class Order {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -26,6 +27,8 @@ export class Order {
   @Column({ type: 'enum', enum: OrderStatus, default: OrderStatus.NEW })
   status: OrderStatus;
 
-  @OneToMany(() => OrderItem, (item) => item.order)
+  @OneToMany(() => OrderItem, (item) => item.order, { 
+    cascade: true 
+  })
   items: OrderItem[];
 }

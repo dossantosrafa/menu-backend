@@ -5,6 +5,7 @@ import { CategoryModule } from './cases/categories/category.module';
 import { ProductModule } from './cases/products/product.module';
 import { SpotModule } from './cases/spots/spot.module';
 import { GuestCheckModule } from './cases/guest-checks/guest-check.module';
+import { OrderModule } from './cases/orders/order.module';
 
 @Module({
   imports: [
@@ -25,14 +26,14 @@ import { GuestCheckModule } from './cases/guest-checks/guest-check.module';
           schema: dbSchema,
           autoLoadEntities: true,
           synchronize: true,
-          ssl: false
         }
       }
     }),
     CategoryModule,
     ProductModule,
     SpotModule,
-    GuestCheckModule
+    GuestCheckModule,
+    OrderModule
   ],
   controllers: [],
   providers: [],
