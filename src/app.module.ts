@@ -26,6 +26,7 @@ import { OrderModule } from './cases/orders/order.module';
           schema: dbSchema,
           autoLoadEntities: true,
           synchronize: true,
+          ssl: false
         }
       }
     }),
